@@ -61,11 +61,11 @@ let arr4 = [111, 345, 1101, 1111, 1234, 2341]
 /// 2 Даны N отсортированных массива. Написать функцию слияния в один отсортированный массив.
 /// - Parameter arrays: sorted arrays
 /// - Returns: united sorted arrays
-func sortingArrays<T: Comparable>(_ arrays: [T]...) -> [T] {
+func sortedArray<T: Comparable>(_ arrays: [T]...) -> [T] {
     return arrays.flatMap({ $0 }).sorted()
 }
 
-print(sortingArrays(
+print(sortedArray(
     arr1,
     arr2,
     arr3,
@@ -80,7 +80,7 @@ print(sortingArrays(
 /// 2 Даны N отсортированных массива. Написать функцию слияния в один отсортированный массив.
 /// - Parameter arrays: sorted arrays
 /// - Returns: united sorted arrays
-func sortingArraysSeconDecision(_ arrays: [Int]...) -> [Int] {
+func sortedArraySecondDecision(_ arrays: [Int]...) -> [Int] {
     var resultArray = arrays[0]
     // for array in arrays begining with second array
     for i in 1..<arrays.count {
@@ -107,7 +107,7 @@ func sortingArraysSeconDecision(_ arrays: [Int]...) -> [Int] {
     return resultArray
 }
 
-print(sortingArraysSeconDecision(
+print(sortedArraySecondDecision(
     arr1,
     arr2,
     arr3,
