@@ -72,3 +72,58 @@ print(sortingArrays(
     arr4
 ))
 
+// MARK: - Task 2 decision 2
+/// Это решение с использованием базовых конструкций программирования.
+/// Поскольку это решение в коде не особо читаемо я попытался его немного объяснить в конце файла
+
+
+/// 2 Даны N отсортированных массива. Написать функцию слияния в один отсортированный массив.
+/// - Parameter arrays: sorted arrays
+/// - Returns: united sorted arrays
+func sortingArraysSeconDecision(_ arrays: [Int]...) -> [Int] {
+    var resultArray = arrays[0]
+    // for array in arrays begining with second array
+    for i in 1..<arrays.count {
+        // for numbers in another array
+        for j in 0..<arrays[i].count {
+            
+            // if it biggest number
+            if arrays[i][j] >= resultArray[resultArray.count - 1] {
+                // add number at the end and go to next iteration
+                resultArray.append(arrays[i][j])
+                continue
+            }
+            // for numbers in result array
+            for k in 0..<resultArray.count {
+                if arrays[i][j] <= resultArray[k] {
+                    // insert number in right position
+                    resultArray.insert(arrays[i][j], at: k)
+                    break
+                }
+            }
+            
+        }
+    }
+    return resultArray
+}
+
+print(sortingArraysSeconDecision(
+    arr1,
+    arr2,
+    arr3,
+    arr4
+))
+
+/*
+ 0. Дано: [1, 2, 3, 4] [2, 3, 5, 6, 7] [0, 4, 10, 11]
+ 1. resultArray = [1, 2, 3, 4]
+ 2. 2(эта двойка из второго массива) >= 4(последнее число из resultArray) ? resutlArray.append(2) и идем переходим к следующему числу(то есть к тройке), а иначе пункт 2.1
+ 2.1 Пробегаемся по resultArray и проверяем нашу двойку с каждым числом в массиве до тех пор пока она не будет меньше или равна очередного числа в массиве(secondArray[0] <= resultArray[i]). Как только это условие выполнится, мы вставляем это число в наш resultArray по индексу i и приступаем уже к следующему числу
+ 3. Краткое описание вышенаписанного
+    2 >= 4 ? false
+    2 <= 1 ? false
+    2 <= 2 ? true
+    resultArray = [1, 2, 2, 3, 4]
+    3 >= 4 ? false
+    ...
+*/
