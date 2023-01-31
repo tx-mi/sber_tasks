@@ -50,3 +50,25 @@ assert(getBalancedString("aaaaa") == nil, "failed with aaaaa")
 assert(getBalancedString("") == nil, "failed with empty string")
 
 
+// MARK: - Task 2 decision 1
+/// Это решение с использованием встроенных функций в swift
+
+let arr1 = [1, 2, 4, 5, 8]
+let arr2 = [3, 7, 8, 10]
+let arr3 = [1, 9]
+let arr4 = [111, 345, 1101, 1111, 1234, 2341]
+
+/// 2 Даны N отсортированных массива. Написать функцию слияния в один отсортированный массив.
+/// - Parameter arrays: sorted arrays
+/// - Returns: united sorted arrays
+func sortingArrays<T: Comparable>(_ arrays: [T]...) -> [T] {
+    return arrays.flatMap({ $0 }).sorted()
+}
+
+print(sortingArrays(
+    arr1,
+    arr2,
+    arr3,
+    arr4
+))
+
